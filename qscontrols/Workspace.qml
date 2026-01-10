@@ -21,8 +21,8 @@ Item {
             model: Hyprland.workspaceModel(screen)
 
             Button {
-                Layout.preferredWidth: control.height * 0.8
-                Layout.preferredHeight: control.height * 0.8
+                Layout.preferredWidth: control.height
+                Layout.preferredHeight: control.height
                 Layout.alignment: Qt.AlignVCenter
 
                 onClicked: {

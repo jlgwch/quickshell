@@ -44,11 +44,11 @@ FluPanelWindow {
         Row {
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-            Layout.leftMargin: 4
+            Layout.leftMargin: 6
             spacing: 5
             Workspace {
                 anchors.verticalCenter: parent.verticalCenter
-                height: parent.height
+                height: bar.itemHeight
                 screen: bar.screen
             }
 
@@ -61,7 +61,7 @@ FluPanelWindow {
         Row {
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignRight
-            Layout.rightMargin: 4
+            Layout.rightMargin: 6
             spacing: 5
 
             MprisIndictor {
