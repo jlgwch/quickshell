@@ -16,11 +16,13 @@ import "../common"
 Button {
     id: control
     property int size: 20
+    property int iconSize: 18
     property string contentDescription: ""
     readonly property MprisPlayer player: MprisService.activePlayer
 
     width: size
     height: size
+    hoverEnabled: true
 
     Accessible.role: Accessible.Button
     Accessible.name: control.text
@@ -38,14 +40,26 @@ Button {
             fill: parent
             margins: 0
         }
+        // color: {
+        //     if (!enabled)
+        //         return "#646464";
+        //     if (checked)
+        //         return "#ff79c6";
+        //     else
+        //         // return "#0066b4";
+        //         return "#00000000";
+        // }
+
         color: {
             if (!enabled)
-                return "#646464";
+                return "#646464"; // 禁用颜色
+            if (pressed)
+                return Qt.rgba(FluTheme.draculaPrimaryColor.r, FluTheme.draculaPrimaryColor.g, FluTheme.draculaPrimaryColor.b, 0.35);
+            if (hovered)
+                return Qt.rgba(FluTheme.draculaPrimaryColor.r, FluTheme.draculaPrimaryColor.g, FluTheme.draculaPrimaryColor.b, 0.20);
             if (checked)
-                return "#ff79c6";
-            else
-                // return "#0066b4";
-                return "#00000000";
+                return FluTheme.draculaPrimaryColor;
+            return FluTheme.draculaForegroundColor;
         }
         border.width: 0
         border.color: "#ffffff"
@@ -62,7 +76,7 @@ Button {
                 else
                     return "#ffffff";
             }
-            iconSize: Math.min(parent.height, parent.width) * 0.8
+            iconSize: control.iconSize
 
             Behavior on color {
                 ColorAnimation {
@@ -83,7 +97,7 @@ Button {
                 else
                     return "#ffffff";
             }
-            iconSize: Math.min(parent.height, parent.width) * 0.4
+            iconSize: control.iconSize * 0.5
 
             Behavior on color {
                 ColorAnimation {
