@@ -11,7 +11,7 @@ Button {
     property string contentDescription: qsTr("")
 
     verticalPadding: 0
-    horizontalPadding: 12
+    horizontalPadding: 6
     font.pixelSize: 16
     palette.buttonText: "#ffffff"
 
