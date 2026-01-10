@@ -19,6 +19,8 @@ FluPanelWindow {
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
     implicitHeight: 38
 
+    readonly property int itemHeight: 28
+
     anchors {
         top: true
         left: true
@@ -33,7 +35,7 @@ FluPanelWindow {
 
     Clock {
         anchors.centerIn: parent
-        height: bar.implicitHeight * 0.8
+        height: bar.itemHeight
     }
 
     RowLayout {
@@ -64,26 +66,26 @@ FluPanelWindow {
 
             MprisIndictor {
                 anchors.verticalCenter: parent.verticalCenter
-                width: parent.height * 0.8
-                height: parent.height * 0.8
+                width: bar.itemHeight
+                height: bar.itemHeight
                 visible: MprisService.activePlayer !== null
             }
 
             Caffeine {
                 anchors.verticalCenter: parent.verticalCenter
-                width: parent.height * 0.8
-                height: parent.height * 0.8
+                width: bar.itemHeight
+                height: bar.itemHeight
                 iconSize: 18
             }
 
             SysTray {
                 anchors.verticalCenter: parent.verticalCenter
-                height: parent.height * 0.8
+                height: bar.itemHeight
             }
 
             PanelIndicator {
                 anchors.verticalCenter: parent.verticalCenter
-                height: parent.height * 0.8
+                height: bar.itemHeight
             }
         }
     }
