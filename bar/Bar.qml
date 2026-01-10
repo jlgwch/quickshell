@@ -73,7 +73,7 @@ FluPanelWindow {
                 anchors.verticalCenter: parent.verticalCenter
                 width: parent.height * 0.8
                 height: parent.height * 0.8
-                iconSize: 24
+                iconSize: 18
             }
 
             SysTray {

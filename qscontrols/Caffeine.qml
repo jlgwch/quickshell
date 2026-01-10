@@ -25,45 +25,42 @@ Button {
             Hypridle.caffeine_on();
     }
 
-    background: Item {
-        anchors.fill: parent
-        Rectangle {
-            id: background
-            anchors {
-                fill: parent
-                margins: 0
-            }
-
-            radius: 6
-            color: control.pressed ? Qt.rgba(FluTheme.draculaPrimaryColor.r, FluTheme.draculaPrimaryColor.g, FluTheme.draculaPrimaryColor.b, 0.35) : control.hovered ? Qt.rgba(FluTheme.draculaPrimaryColor.r, FluTheme.draculaPrimaryColor.g, FluTheme.draculaPrimaryColor.b, 0.20) : "transparent"
-
-            Behavior on color {
-                ColorAnimation {
-                    duration: 120
-                    easing.type: Easing.OutCubic
-                }
-            }
-
-            Image {
-                anchors.centerIn: parent
-                width: iconSize
-                height: iconSize
-                source: caffeine ? "../assets/images/caffeine_on.svg" : "../assets/images/caffeine_off.svg"
-            }
-
-            // FluIcon {
-            //     anchors.centerIn: parent
-            //     iconSource: FluentIcons.LEDLight
-            //     iconSize: Math.min(parent.height, parent.width) * 0.8
-            //     iconColor: caffeine ? FluTheme.draculaPrimaryColor : FluTheme.white
-
-            //     Behavior on color {
-            //         ColorAnimation {
-            //             duration: 120
-            //             easing.type: Easing.OutCubic
-            //         }
-            //     }
-            // }
+    background: Rectangle {
+        id: background
+        anchors {
+            fill: parent
+            margins: 0
         }
+
+        radius: 6
+        color: control.pressed ? Qt.rgba(FluTheme.draculaPrimaryColor.r, FluTheme.draculaPrimaryColor.g, FluTheme.draculaPrimaryColor.b, 0.35) : control.hovered ? Qt.rgba(FluTheme.draculaPrimaryColor.r, FluTheme.draculaPrimaryColor.g, FluTheme.draculaPrimaryColor.b, 0.20) : FluTheme.draculaForegroundColor
+
+        Behavior on color {
+            ColorAnimation {
+                duration: 120
+                easing.type: Easing.OutCubic
+            }
+        }
+
+        Image {
+            anchors.centerIn: parent
+            width: iconSize
+            height: iconSize
+            source: caffeine ? "../assets/images/caffeine_on.svg" : "../assets/images/caffeine_off.svg"
+        }
+
+        // FluIcon {
+        // anchors.centerIn: parent
+        // iconSource: FluentIcons.LEDLight
+        // iconSize: Math.min(parent.height, parent.width) * 0.8
+        // iconColor: caffeine ? FluTheme.draculaPrimaryColor : FluTheme.white
+
+        // Behavior on color {
+        // ColorAnimation {
+        // duration: 120
+        // easing.type: Easing.OutCubic
+        // }
+        // }
+        // }
     }
 }
