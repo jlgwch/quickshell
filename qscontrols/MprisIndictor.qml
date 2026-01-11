@@ -129,7 +129,7 @@ Button {
             xPos: loader.globalRect.x
             yPos: control.QsWindow.window.implicitHeight + 2
             enableFocusGrab: true
-            visible: control.checked
+            visible: true
             color: "#00000000"
             // backgroundColor: "red"
             backgroundColor: color
