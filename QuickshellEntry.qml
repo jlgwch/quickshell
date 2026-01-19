@@ -3,11 +3,13 @@ import Quickshell
 import "./bar"
 import "./lock"
 import "./wallpaper"
+import "./launcher"
 
 Scope {
 
     ReloadPopup {}
     Lock {}
+    Applauncher {}
 
     Variants {
         model: Quickshell.screens
