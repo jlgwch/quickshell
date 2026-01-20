@@ -22,6 +22,8 @@ Singleton {
     property int currentBrightness
     property int maxBrightness
 
+    readonly property string inputMethod: fcitxDectorProcess.fcitxState == 2 ? "chinese" : "keyboard"
+
 
     FileView {
         id: osRelease
@@ -165,5 +167,24 @@ Singleton {
         id: logout
         running: false
         command: ["hyprctl", "dispatch", "exit"]
+    }
+
+    Process {
+        id: fcitxDectorProcess
+        property var fcitxState
+        running: true
+        command: ["fcitx5-remote"]
+        stdout: StdioCollector {
+            onStreamFinished: {
+                fcitxDectorProcess.fcitxState = `${this.text}`;
+            }
+        }
+    }
+
+    Timer {
+        interval: 50
+        running: true
+        repeat: true
+        onTriggered: fcitxDectorProcess.running = true
     }
 }

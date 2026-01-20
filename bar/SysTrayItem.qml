@@ -7,6 +7,7 @@ import Quickshell.Widgets
 import Quickshell.Services.SystemTray
 
 import "../style"
+import "../utils"
 
 MouseArea {
     id: mouseArea
@@ -44,35 +45,9 @@ MouseArea {
             //     return modelData.icon;
             // }
 
-            property string iconSource: {
-                let icon = modelData && modelData.icon;
-                if (typeof icon === 'string' || icon instanceof String) {
-                    if (icon === "") {
-                        return "";
-                    }
-                    if (icon.includes("?path=")) {
-                        const split = icon.split("?path=");
-                        if (split.length !== 2) {
-                            return icon;
-                        }
+            // property string iconSource: 
 
-                        const name = split[0];
-                        const path = split[1];
-                        let fileName = name.substring(name.lastIndexOf("/") + 1);
-                        if (fileName.startsWith("dropboxstatus")) {
-                            fileName = `hicolor/16x16/status/${fileName}`;
-                        }
-                        return `file://${path}/${fileName}`;
-                    }
-                    if (icon.startsWith("/") && !icon.startsWith("file://")) {
-                        return `file://${icon}`;
-                    }
-                    return icon;
-                }
-                return "";
-            }
-
-            source: iconSource
+            source: Utils.getTrayIcon(modelData)
 
             anchors.centerIn: parent
             width: parent.width * 0.6
