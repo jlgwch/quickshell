@@ -10,7 +10,7 @@ Label {
     font: FluTheme.normalBoldFont
     visible: Hyprland.focusedMonitorName == bar.screen.name
     opacity: visible ? 1 : 0
-    elide: Text.ElideMiddle
+    elide: Text.ElideRight
 
     scale: visible ? 1 : 0.85
 
