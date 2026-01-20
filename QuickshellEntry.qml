@@ -4,12 +4,15 @@ import "./bar"
 import "./lock"
 import "./wallpaper"
 import "./launcher"
+import "./notification"
 
 Scope {
 
     ReloadPopup {}
     Lock {}
     Applauncher {}
+
+    Notification {}
 
     Variants {
         model: Quickshell.screens
