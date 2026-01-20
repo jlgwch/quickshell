@@ -10,7 +10,8 @@ Singleton {
     readonly property PwNode source: Pipewire.defaultAudioSource
     readonly property real sinkLevel: sink.audio.volume
     readonly property real sourceLevel: source.audio.volume
-    readonly property bool sinkMute: !sink.audio?.muted
+    readonly property bool sinkMute: sink.audio?.muted
+    readonly property bool sourceMute: source.audio?.muted
 
     PwObjectTracker {
         objects: Pipewire.nodes.values.filter(node => node.audio && !node.isStream)
@@ -29,11 +30,31 @@ Singleton {
             return FluentIcons.Volume0;
     }
 
+    readonly property var sourceIcon: FluentIcons.Microphone
+
+    function setSinkMute() {
+        sink.audio.muted = !sink.audio.muted
+    }
+
     function setSinkLevel(value: real) {
-        sink.audio.volume = value;
+        sink.audio.volume = value
+        if(value > 0) {
+            sink.audio.muted = false
+        } else {
+            sink.audio.muted = true
+        }
+    }
+
+    function setSourceMute() {
+        source.audio.muted = !source.audio.muted
     }
 
     function setSourceLevel(value: real) {
-        source.audio.volume = value;
+        source.audio.volume = value
+        if(value > 0) {
+            source.audio.muted = false
+        } else {
+            source.audio.muted = true
+        }
     }
 }

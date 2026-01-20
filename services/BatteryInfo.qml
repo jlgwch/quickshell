@@ -18,12 +18,12 @@ Singleton {
         var devices = UPower.devices.values;
         for (var i = 0; i < devices.length; i++) {
             var dev = devices[i];
-            console.log(dev.model);
-            console.log("    type:        " + UPowerDeviceType.toString(dev.type));
-            console.log("    state:       " + UPowerDeviceState.toString(dev.state));
-            console.log("    percentage:  " + dev.percentage);
-            console.log("    timeToFull:  " + dev.timeToFull);
-            console.log("    timeToEmpty: " + dev.timeToEmpty);
+            // console.log(dev.model);
+            // console.log("    type:        " + UPowerDeviceType.toString(dev.type));
+            // console.log("    state:       " + UPowerDeviceState.toString(dev.state));
+            // console.log("    percentage:  " + dev.percentage);
+            // console.log("    timeToFull:  " + dev.timeToFull);
+            // console.log("    timeToEmpty: " + dev.timeToEmpty);
         }
     }
 

@@ -7,7 +7,7 @@ import "../style"
 FluIconButton {
     id: control
     iconSize: 20
-    iconSource: AudioDevice.sinkIcon
+    iconSource: AudioDevice.sourceIcon
     iconColor: "#ffffff"
     horizontalPadding: 0
     verticalPadding: 0
@@ -16,13 +16,13 @@ FluIconButton {
 
     Loader {
         anchors.centerIn: parent
-        active: !AudioDevice.sinkMute
+        active: AudioDevice.sourceMute
         asynchronous: true
-        sourceComponent: FluIcon {
-            opacity: 0.4
-            iconSource: FluentIcons.VolumeBars
-            color: FluTheme.grey120
-            iconSize: control.iconSize
+        sourceComponent: Rectangle {
+            width: 1.5
+            height: control.height * 0.6
+            rotation: -45
+            color: FluTheme.white
         }
     }
 }

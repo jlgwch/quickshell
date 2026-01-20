@@ -1,9 +1,9 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Controls.Basic
-import QtQuick.Layouts
+import Quickshell
 
 import "../style"
+import "../panel"
 
 Button {
     id: control
@@ -79,4 +79,26 @@ Button {
             }
         }
     }
+
+    LazyLoader {
+        id: loader
+        loading: false
+        activeAsync: true
+
+        Panel {
+            enableFocusGrab: true
+            onFocusLost: {
+                control.checked = false
+            }
+        }
+    }
+
+    onCheckedChanged: {
+        if (checked) {
+            loader.loading = checked;
+        } else {
+            loader.active = false
+        }
+    }
+
 }
