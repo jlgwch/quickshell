@@ -112,4 +112,58 @@ Singleton {
         id: brightnessSetProc
         running: false
     }
+
+
+
+    function poweroff() {
+        poweroff.running = true;
+    }
+
+    function suspend() {
+        singleton.lock();
+        suspend.running = true;
+    }
+
+    function reboot() {
+        reboot.running = true;
+    }
+
+    function lock() {
+        lock.running = true;
+    }
+
+    function logout() {
+        logout.running = true;
+    }
+
+    Process {
+        id: poweroff
+        running: false
+        command: ["poweroff"]
+    }
+
+    Process {
+        id: suspend
+        running: false
+        command: ["systemctl", "suspend"]
+    }
+
+    Process {
+        id: reboot
+        running: false
+        command: ["reboot"]
+    }
+
+    Process {
+        id: lock
+        running: false
+        // command: ["hyprctl", "dispatch", "exec", "hyprlock"]
+        command: ["qs", "ipc", "call", "lock", "lock"]
+    }
+
+    Process {
+        id: logout
+        running: false
+        command: ["hyprctl", "dispatch", "exit"]
+    }
 }

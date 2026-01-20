@@ -11,7 +11,7 @@ Scope {
     ReloadPopup {}
     Lock {}
     Applauncher {}
-
+    
     Notification {}
 
     Variants {

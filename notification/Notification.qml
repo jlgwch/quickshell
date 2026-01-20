@@ -81,6 +81,8 @@ FluPanelWindow {
                 }
             }
             notifyModel.append(notify)
+
+            console.log(JSON.stringify(notif))
         }
 
         function onClosed(id, reason) {
