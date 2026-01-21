@@ -182,7 +182,7 @@ Singleton {
     }
 
     Timer {
-        interval: 50
+        interval: 30
         running: true
         repeat: true
         onTriggered: fcitxDectorProcess.running = true
