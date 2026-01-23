@@ -64,6 +64,7 @@ Singleton {
         readonly property Connections conn: Connections {
             target: notification
             function onClosed(reason) {
+                console.log("notification closed:", notification.id, NotificationCloseReason.toString(reason))
                 singleton.closed(notification.id, NotificationCloseReason.toString(reason))
                 removeNotify(notification?.id)
                 notifyWrapper.destroy()
